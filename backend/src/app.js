@@ -20,11 +20,11 @@ app.use(express.static("/public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-const { NODE_ENV, PORT, DB_USER_PASSWORD, SESSION_SECRET } = process.env;
+const { NODE_ENV, PORT, DB_CONNECTION_STRING, SESSION_SECRET } = process.env;
 
 const nodeEnv = NODE_ENV || "development";
 const port = PORT || 3000;
-const dbURI = nodeEnv === "development" ? "mongodb://127.0.0.1:27017/url_shortener" : `mongodb+srv://root:${DB_USER_PASSWORD}@url-shortener.rheingq.mongodb.net/?retryWrites=true&w=majority`;
+const dbURI = nodeEnv === "development" ? "mongodb://127.0.0.1:27017/url_shortener" : DB_CONNECTION_STRING;
 mongoose
   .connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => app.listen(port))
