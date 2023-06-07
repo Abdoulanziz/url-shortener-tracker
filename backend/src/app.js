@@ -27,7 +27,11 @@ const port = PORT || 3000;
 const dbURI = nodeEnv === "development" ? "mongodb://127.0.0.1:27017/url_shortener" : DB_CONNECTION_STRING;
 mongoose
   .connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => app.listen(port))
+  .then(() =>
+    app.listen(port, () => {
+      console.log(`Server running on port ${port}`);
+    })
+  )
   .catch(() => console.log("Connection failure!"));
 
 app.use(
@@ -163,69 +167,65 @@ app.get("/stats/:id", (req, res) => {
 });
 
 app.get("/:url", (req, res) => {
-  if (req.session.user_uid) {
-    let location;
-    let url = req.params.url;
-    if (nodeEnv === "development") {
-      Url.findOne({ urlNew: `${req.hostname}:${port}/${url}` }, (error, result) => {
-        if (error) return console.log(error);
-        if (!result) {
-          res.redirect("/");
-        } else {
-          location = new Location({
-            urlID: result._id,
-            urlTarget: result.urlTarget,
-            ip: "192.168.1.1",
-            continent: "Africa",
-            country: "Uganda",
-            region: "Central",
-            city: "Kampala",
-            latitude: 0.3476,
-            longitude: 32.5825,
-          });
-          location.save((error, data) => {
-            if (error) return console.log(error);
-            if (data) {
-              const urlToVisit = result.urlOld;
-              res.redirect(urlToVisit);
-            }
-          });
-        }
-      });
-    } else {
-      Url.findOne({ urlNew: `${req.hostname}/${url}` }, (error, result) => {
-        if (error) return console.log(error);
-        if (!result) {
-          res.redirect("/");
-        } else {
-          fetch(`http://ipwho.is/${req.ip}`)
-            .then((response) => response.json())
-            .then((data) => {
-              location = new Location({
-                urlID: result._id,
-                urlTarget: result.urlTarget,
-                ip: data.ip,
-                continent: data.continent,
-                country: data.country,
-                region: data.region,
-                city: data.city,
-                latitude: data.latitude,
-                longitude: data.longitude,
-              });
-
-              location.save((error, data) => {
-                if (error) return console.log(error);
-                if (data) {
-                  const urlToVisit = result.urlOld;
-                  res.redirect(urlToVisit);
-                }
-              });
-            })
-            .catch((error) => console.log(error));
-        }
-      });
-    }
+  let location;
+  let url = req.params.url;
+  if (nodeEnv === "development") {
+    Url.findOne({ urlNew: `${req.hostname}:${port}/${url}` }, (error, result) => {
+      if (error) return console.log(error);
+      if (!result) {
+        res.redirect("/");
+      } else {
+        location = new Location({
+          urlID: result._id,
+          urlTarget: result.urlTarget,
+          ip: "192.168.1.1",
+          continent: "Africa",
+          country: "Uganda",
+          region: "Central",
+          city: "Kampala",
+          latitude: 0.3476,
+          longitude: 32.5825,
+        });
+        location.save((error, data) => {
+          if (error) return console.log(error);
+          if (data) {
+            const urlToVisit = result.urlOld;
+            res.redirect(urlToVisit);
+          }
+        });
+      }
+    });
   } else {
-    res.redirect("/signin");
+    Url.findOne({ urlNew: `${req.hostname}/${url}` }, (error, result) => {
+      if (error) return console.log(error);
+      if (!result) {
+        res.redirect("/");
+      } else {
+        fetch(`http://ipwho.is/${req.ip}`)
+          .then((response) => response.json())
+          .then((data) => {
+            location = new Location({
+              urlID: result._id,
+              urlTarget: result.urlTarget,
+              ip: data.ip,
+              continent: data.continent,
+              country: data.country,
+              region: data.region,
+              city: data.city,
+              latitude: data.latitude,
+              longitude: data.longitude,
+            });
+
+            location.save((error, data) => {
+              if (error) return console.log(error);
+              if (data) {
+                const urlToVisit = result.urlOld;
+                res.redirect(urlToVisit);
+              }
+            });
+          })
+          .catch((error) => console.log(error));
+      }
+    });
   }
 });
