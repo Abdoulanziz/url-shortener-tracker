@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap");
+:root {
+  /* Site Color */
+  --brand-primary: #89ba16;
+  
+  /* --bg-secondary: #89ba16; */
+  --font-logo-text: "Tilt Neon";
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+html {
+  font-size: 14px;
+}
+
+body {
+  color: var(--brand-text-grey);
+  overflow-inline: hidden;
+}
+
+img {
+  inline-size: 100%;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.2;
+  margin: 0.6em 0;
+}
+
+input[type="submit"]{
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.container {
+  max-inline-size: 68.75em;
+  margin: 0 auto;
+  overflow: auto;
+  padding: 0 4vw;
+}
+
+.container-fluid {
+  max-inline-size: 100%;
+  overflow: auto;
+}
+
+.flex {
+  block-size: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid {
+  block-size: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  padding: 0.48em 0.8em;
+}
+
+.spacer {
+  margin-bottom: 275px;
+  visibility: hidden;
+}
+
+.d-block {
+  display: block;
+}
+
+.d-none {
+  display: none;
+}

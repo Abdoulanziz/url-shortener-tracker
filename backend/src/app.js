@@ -3,6 +3,7 @@ require("dotenv").config();
 const express = require("express");
 const ejs = require("ejs");
 const mongoose = require("mongoose");
+const path = require("path");
 const fetch = require("node-fetch"); // Node Fetch 3+ strictly is ES6 compliant so use node-fetch@2
 const bcrypt = require("bcrypt");
 const session = require("express-session");
@@ -16,7 +17,7 @@ const { shortenURL } = require("../utils/utils");
 const app = express();
 app.set("view engine", "ejs");
 app.set("trust proxy", true);
-app.use(express.static("/public"));
+app.use(express.static(path.join(__dirname, "../public")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/svg/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="/icons/themify-icons.css" />
+    <link rel="stylesheet" href="/css/utils.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/responsive.css" />
+    <title>Signin</title>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="container hide" id="web-view">
+          <div class="navbar-nav flex">
+            <img src="/svg/logo.svg" alt="Logo" class="navbar-logo" />
+            <nav>
+              <ul class="flex">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <div class="container" id="mob-view">
+          <div class="navbar-nav flex" style="justify-content: space-between;">
+            <div class="flex" style="gap: .4rem;">
+              <img src="/svg/logo.svg" alt="Logo" class="navbar-logo" />
+              <span class="navbar-logo-text">Linkdash</span>
+            </div>
+            <img src="/svg/menu-open.svg" alt="Menu" class="navbar-menu-button" id="menu-button-open" />
+            <img src="/svg/menu-close.svg" alt="Menu" class="navbar-menu-button hide" id="menu-button-close" />
+          </div>
+          <div class="navbar-dropdown hide">
+            <div class="dropdown-items">
+              <div class="dropdown-item">
+                <span class="title flex"><span>How it Works</span></span>
+              </div>
+              <div class="dropdown-item">
+                <span class="title flex"><span>About Us</span></span>
+              </div>
+              <div class="dropdown-item">
+                <span class="title flex"><span>Contact Us</span></span>
+              </div>
+              <!-- <div class="dropdown-item-x flex">
+                <a
+                  href="/auth/signout"
+                  class="btn flex"
+                  style="font-family: Tilt Neon; color: #562e19; background-color: #f7dfd3; margin-block-start: 14px; padding: 12px 20px; border-radius: 10px; inline-size: 100%"
+                  >Signout</a
+                >
+              </div> -->
+              <div class="dropdown-item-x flex" style="flex-direction: column">
+                <a
+                  href="/auth/signin"
+                  class="btn auth-btn-signin flex"
+                  >Signin</a
+                >
+                <a
+                  href="/auth/signup"
+                  class="btn auth-btn-signup flex"
+                  >Signup</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class="container flex"> 
+        <div class="form-wrapper">
+          <h4 class="heading">Sign In</h4>
+          <form action="/signin" method="post" class="auth-form flex">
+            <div class="form-control flex">
+                <label for="email" class="form-label">E-mail</label>
+                <input type="email" name="email" id="email" placeholder="Enter your e-mail address">
+            </div>
+            <div class="form-control flex">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" name="password" id="password" placeholder="Enter your password">
+            </div>
+            <div class="form-cta flex">
+                <button type="submit" class="btn btn-md btn-success">Sign In</button>            
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <!-- <div class="container flex">
+        <ul>
+          <li class="flex"><a href="#">Features</a></li>
+          <li class="flex"><a href="#">Privacy policy</a></li>
+          <li class="flex"><a href="#">Terms of service</a></li>
+        </ul>
+      </div> -->
+    </footer>
+  <script src="/js/main.js"></script>
+  </body>
+</html>
