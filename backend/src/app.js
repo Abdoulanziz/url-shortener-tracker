@@ -101,7 +101,7 @@ app.get("/signout", (req, res) => {
 
 app.get("/", (req, res) => {
   if (req.session.user_uid) {
-    res.render("index");
+    res.render("index", {data:{sid:req.session.user_uid}});
   } else {
     res.redirect("/signin");
   }
@@ -109,7 +109,7 @@ app.get("/", (req, res) => {
 
 app.get("/docs", (req, res) => {
   if (req.session.user_uid) {
-    res.render("docs");
+    res.render("docs", {data:{sid:req.session.user_uid}});
   } else {
     res.redirect("/signin");
   }
@@ -142,9 +142,9 @@ app.get("/urls", (req, res) => {
     Url.find({ urlOwnerID: req.session.user_uid }, {}, (error, result) => {
       if (error) console.log(error);
       if (result && result.length != 0) {
-        res.render("urls", { data: { result } });
+        res.render("urls", { data: { result, sid:req.session.user_uid } });
       } else {
-        res.render("urls", { data: "" });
+        res.render("urls", { data: "", sid:req.session.user_uid });
       }
     });
   } else {
@@ -157,9 +157,9 @@ app.get("/stats/:id", (req, res) => {
     Location.find({ urlID: req.params.id }, (error, result) => {
       if (error) console.log(error);
       if (result && result.length != 0) {
-        res.render("stats", { data: { locations: result } });
+        res.render("stats", { data: { locations: result, sid:req.session.user_uid } });
       } else {
-        res.render("stats", { data: {} });
+        res.render("stats", { data: {sid:req.session.user_uid} });
       }
     });
   } else {

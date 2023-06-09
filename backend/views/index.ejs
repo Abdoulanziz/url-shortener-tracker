@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/css/utils.css" />
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="/css/responsive.css" />
-    <title>Signin</title>
+    <title>Home</title>
   </head>
   <body>
     <header>
@@ -46,53 +46,37 @@
               <div class="dropdown-item">
                 <span class="title flex"><span>Docs</span></span>
               </div>
-              <!-- <div class="dropdown-item-x flex">
-                <a
-                  href="/auth/signout"
-                  class="btn flex"
-                  style="font-family: Tilt Neon; color: #562e19; background-color: #f7dfd3; margin-block-start: 14px; padding: 12px 20px; border-radius: 10px; inline-size: 100%"
-                  >Signout</a
-                >
-              </div> -->
-              <div class="dropdown-item-x flex" style="flex-direction: column">
-                <a
-                  href="/signin"
-                  class="btn auth-btn-signin flex"
-                  >Signin</a
-                >
-                <a
-                  href="/signup"
-                  class="btn auth-btn-signup flex"
-                  >Signup</a
-                >
-              </div>
+              <% if(data.sid){ %>
+                <div class="dropdown-item-x flex">
+                  <a
+                    href="/signout"
+                    class="btn auth-btn-signup flex"
+                    >Signout</a
+                  >
+                </div>
+              <% }else{ %>
+                <div class="dropdown-item-x flex" style="flex-direction: column">
+                  <a
+                    href="/signin"
+                    class="btn auth-btn-signin flex"
+                    >Signin</a
+                  >
+                  <a
+                    href="/signup"
+                    class="btn auth-btn-signup flex"
+                    >Signup</a
+                  >
+                </div>
+              <% }%>
             </div>
           </div>
         </div>
       </nav>
     </header>
     <main>
-      <!-- <div class="container flex"> 
+      <div class="container flex" style="align-items: flex-start;"> 
         <div class="form-wrapper">
-          <h4 class="heading">Sign In</h4>
-          <form action="/signin" method="post" class="auth-form flex">
-            <div class="form-control flex">
-                <label for="email" class="form-label">E-mail</label>
-                <input type="email" name="email" id="email" placeholder="Enter your e-mail address">
-            </div>
-            <div class="form-control flex">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" name="password" id="password" placeholder="Enter your password">
-            </div>
-            <div class="form-cta flex">
-                <button type="submit" class="btn btn-md btn-success">Sign In</button>            
-            </div>
-          </form>
-        </div>
-      </div> -->
-      <div class="container flex"> 
-        <div class="form-wrapper">
-            <h3 class="heading" >Create Short URL</h3>
+            <h3 class="heading" style="text-align: left;" >Create Short URL</h3>
             <form action="/api/url" method="post" class="data-form flex">
                 <div class="form-control flex">
                     <label for="target" class="form-label">Target</label>
