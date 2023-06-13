@@ -87,20 +87,10 @@
             <ol class="urls">
               <% data.locations.forEach(location =>{ %>
                 <li class="url-item">
-                  <div class="url-card" style="inline-size: 100%;">
-                    <div class="flex justify-content-between align-items-center" style="inline-size:100%">
-                      <span>Date: </span><span><%= getDateVisited(location.createdAt) %></span>
-                    </div>
-                    <div class="flex justify-content-between align-items-center" style="inline-size:100%">
-                      <span>Country: </span><span><%= location.country %></span>
-                    </div>
-                    <div class="flex justify-content-between align-items-center" style="inline-size:100%">
-                      <span>Region: </span><span><%= location.region %></span>
-                    </div>
-                    <div class="flex justify-content-between align-items-center" style="inline-size:100%">
-                      <span>City: </span><span><%= location.city %></span>
-                    </div>
-                  </div>
+                  <h4>Date: <%= getDateVisited(location.createdAt) %></h4>
+                  <h4>Country: <%= location.country %></h4>
+                  <h4>Region: <%= location.region %></h4>
+                  <h4>City: <%= location.city %></h4>
                 </li>
               <% }) %>
             <% }else{ %>

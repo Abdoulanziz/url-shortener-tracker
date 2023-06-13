@@ -76,7 +76,7 @@
     <main>
       <div class="container flex" style="align-items: flex-start;justify-content: flex-start;"> 
         <div style="inline-size: 100%;">
-            <h3>My Short URLs</h3>
+            <h3 style="margin-block-start: 1.4em;">My Short URLs</h3>
             <ol class="urls">
               <% if(data.result){ %>
                 <% data.result.forEach(r=>{ %>
@@ -88,7 +88,6 @@
                       </div>
                       <span class="url-string">Shareable URL: <span style="color:#1da1f2;">https://<%= r.urlNew %></span></span>
                     </div>
-                    <span class="">Counts: <%= data.count ? data.count : 0 %></span>
                   </li>
                 <% }) %>
               <% }else if(data == ""){ %>

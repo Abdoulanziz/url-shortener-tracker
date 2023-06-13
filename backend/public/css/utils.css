@@ -1,10 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap");
 :root {
-  /* Site Color */
-  --brand-primary: #89ba16;
-  
-  /* --bg-secondary: #89ba16; */
-  --font-logo-text: "Tilt Neon";
+  --font-primary: "Tilt Neon";
+
+  --primary-color: #16021f;
+  --theme-color: #2e1f54;
+  --accent-color: #52057f;
+
+  --text-white: #c2c1c1;
+  --text-grey: #8e8e8e;
 }
 
 *,
@@ -27,7 +30,6 @@ html {
 }
 
 body {
-  color: var(--brand-text-grey);
   overflow-inline: hidden;
 }
 

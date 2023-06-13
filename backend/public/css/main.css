@@ -4,14 +4,17 @@ html {
 }
 
 body {
-  background-color: #fff;
   block-size: 100vh;
   display: flex;
   flex-direction: column;
+  font-family: var(--font-primary);
+
+  background-color: var(--theme-color);
+  color: var(--text-white);
 }
 
 header {
-  background-color: #e7e7e7;
+  background-color: var(--primary-color);
 }
 
 main {
@@ -19,7 +22,6 @@ main {
 }
 
 footer {
-  background-color: var(--bg-secondary);
   padding-block: 1.2em;
 }
 
@@ -28,7 +30,6 @@ footer {
   inline-size: 100%;
   overflow: visible;
   padding-block: 0.34em;
-  background-color: #fff;
 }
 
 .navbar.sticky {
@@ -36,7 +37,6 @@ footer {
   top: 0;
   z-index: 3;
   inline-size: 100%;
-  background-color: #fff;
 }
 
 .navbar > .container#mob-view {
@@ -54,28 +54,22 @@ footer {
 }
 
 .navbar > .container#web-view ul li a {
-  font-family: var(--brand-font-heading);
-  color: var(--brand-text-grey);
   font-size: 1.2rem;
 }
 
 .navbar.sticky > .container#web-view ul li a {
-  font-family: var(--brand-font-heading);
-  color: rgb(148, 148, 148);
   font-size: 1rem;
 }
 
 .navbar > .container#web-view ul li a:hover {
-  color: #dcddde;
 }
 
 .navbar > .container#web-view ul li a.active {
-  color: #f3f3f3;
-  border-block-end: 2px solid #f3f3f3;
 }
 
 .navbar-nav {
   overflow: visible;
+  background-color: var(--primary-color);
 }
 
 .navbar-logo {
@@ -86,7 +80,6 @@ footer {
 }
 
 .navbar-logo-text {
-  font-family: var(--font-logo-text);
   font-weight: 800;
   font-size: 20px;
 }
@@ -96,8 +89,6 @@ footer {
 }
 
 .navbar-menu-button.close {
-  border: 1px solid #e6e7ea;
-  box-shadow: 0 0 2px 0 #e6e7ea;
   border-radius: 4px;
   padding: 0.5em;
 }
@@ -109,7 +100,6 @@ footer {
 .navbar-links > li > a {
   font-size: 1rem;
   font-weight: 400;
-  color: var(--brand-text-dark);
 }
 
 .navbar-dropdown {
@@ -119,9 +109,6 @@ footer {
 
 
 .navbar-dropdown > .dropdown-items > .dropdown-item-x .auth-btn-signin {
-  font-family: Tilt Neon; 
-  border: 1px solid #89ba16; 
-  color: #89ba16; 
   margin-block-start: 14px; 
   padding: 12px 20px; 
   border-radius: 6px; 
@@ -129,10 +116,6 @@ footer {
 }
 
 .navbar-dropdown > .dropdown-items > .dropdown-item-x .auth-btn-signup {
-  font-family: Tilt Neon; 
-  border: 1px solid #89ba16; 
-  background-color: #89ba16;
-  color: #fff; 
   margin-block-start: 14px; 
   padding: 12px 20px; 
   border-radius: 6px; 
@@ -148,20 +131,16 @@ footer {
 .navbar-dropdown > .dropdown-items > .dropdown-item > .title > span {
   font-size: 0.95rem;
   font-weight: 300;
-  font-family: Tilt Neon; 
   word-spacing: 0.18rem;
-  color: rgb(132, 132, 132);
 }
 
 .navbar-dropdown > .dropdown-items > .dropdown-item .sub-title {
   padding-block-end: 0.4em;
   margin-block-end: 1.4em;
-  border-block-end: 1px solid var(--brand-cloud-bg-color);
   text-transform: uppercase;
   letter-spacing: 0.05rem;
   font-weight: 400;
   font-size: 0.8rem;
-  color: #808080;
 }
 
 .navbar-dropdown > .dropdown-items > .dropdown-item .contents {
@@ -188,25 +167,20 @@ footer {
 }
 
 .navbar-dropdown > .dropdown-items > .dropdown-item .content p {
-  color: #808080;
   font-size: 0.75rem;
   font-weight: 400;
   letter-spacing: 0.05rem;
 }
 
 .navbar-dropdown > .dropdown-items > .dropdown-item .contents .links li {
-  background-color: var(--brand-white-bg-color);
-  border-block-start: 1px solid var(--brand-cloud-bg-color);
   padding: 0.6em 0.4em;
 }
 
 .navbar-dropdown > .dropdown-items > .dropdown-item .contents .links li:last-child {
-  border-block-end: 1px solid var(--brand-cloud-bg-color);
 }
 
 .navbar-dropdown > .dropdown-items > .dropdown-item .contents a {
   font-weight: 300;
-  color: #878787;
   font-size: 0.875rem;
 }
 
@@ -245,15 +219,34 @@ footer {
 }
 
 .auth-form .form-control input {
-  padding: .82em .6em;
+  padding: .9em .88em;
   margin-block: .4em;
-  border: 1px solid var(--brand-primary);
   border-radius: 6px;
   font-size: 16px;
+  outline: none;
+  border: none;
+  background-color: var(--primary-color);
+  color: var(--text-white);
+  outline: 1px solid var(--accent-color);
 }
 
 .auth-form .form-control input:focus {
   outline: 0;
+  outline: 1px solid var(--accent-color);
+  background-color: var(--primary-color);
+}
+
+.auth-form .form-control h4 {
+  font-weight: 100;
+  font-size: 15px;
+  margin-block-start: 1.2em;
+  color: var(--text-grey);
+}
+
+
+.auth-form .form-control h4 a {
+  margin-inline-start: .4em;
+  color: var(--text-white);
 }
 
 .auth-form .form-cta {
@@ -262,11 +255,11 @@ footer {
 
 .auth-form .form-cta button {
   padding: 1em 4em;
-  background-color: var(--brand-primary);
   border: 0;
   border-radius: 6px;
-  color: #fff;
   margin-block-start: .4em;
+  background-color: var(--accent-color);
+  color: var(--text-white);
 }
 
 
@@ -276,8 +269,9 @@ footer {
   justify-content: flex-start;
   align-items: flex-start;
   gap: .6rem;
-  background-color: #f3f3f3;
   padding: 2.4rem .6rem;
+  border: 4px dotted var(--accent-color);
+  border-radius: 9px;
 }
 
 .data-form .form-control.flex {
@@ -296,13 +290,15 @@ footer {
 .data-form .form-control input {
   padding: .82em .6em;
   margin-block: .4em;
-  border: 1px solid var(--brand-primary);
   border-radius: 6px;
   font-size: 16px;
-}
 
-.data-form .form-control input:focus {
-  outline: 0;
+  outline: none;
+  border: none;
+
+  background-color: var(--primary-color);
+  color: var(--text-white);
+  outline: 1px solid var(--accent-color);
 }
 
 .data-form .form-cta {
@@ -311,28 +307,47 @@ footer {
 
 .data-form .form-cta button {
   padding: 1em 4em;
-  background-color: var(--brand-primary);
   border: 0;
   border-radius: 6px;
-  color: #fff;
   margin-block-start: .4em;
+  color: var(--text-white);
+  background-color: var(--accent-color);
 }
 
 
 .urls {
-  background-color: aliceblue;
   list-style-type: none;
   border-radius: 6px;
 }
 
 .url-item {
-  background-color: aliceblue;
   padding: .4em;
-  border-radius: 6px;
+  border-radius: 0;
+  border-block-end: 1px solid var(--primary-color);
+}
+
+.url-item h4 {
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.url-item:first-child {
+  border-block-start: 1px solid var(--primary-color);
 }
 
 .url-target-stats {
-  margin-block-end: .4em;
+  margin-block-end: 1em;
+}
+
+.url-target {
+  margin-block-end: .8em;
+}
+
+.url-stats {
+  color: var(--color-grey);
+  padding: .4em 1.2em;
+  background-color: var(--accent-color);
+  border-radius: 9px;
 }
 
 .url-target-stats i {
