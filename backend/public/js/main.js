@@ -14,8 +14,6 @@
       navbar.classList.add("sticky");
       navbar.style.backgroundColor = "var(--primary-color)";
       header.style.backgroundColor = "var(--primary-color)";
-
-      console.log("Scroll up");
     } else {
       // Scroll down
       if (window.location.pathname == "/") {
@@ -23,8 +21,6 @@
       navbar.classList.remove("sticky");
       navbar.style.backgroundColor = "var(--primary-color)";
       header.style.backgroundColor = "var(--primary-color)";
-
-      console.log("Scroll down");
     }
   });
 
@@ -127,3 +123,14 @@
     document.querySelector("footer").classList.add("fixed");
   }
 
+
+  // Format label
+  function formatLabel(numChar, uiElement) {
+    if (uiElement.textContent.length >= numChar) {
+      const u = uiElement.innerText.slice(0, numChar);
+      uiElement.textContent = `${u}...`;
+    } else {
+      const u = uiElement.textContent.slice(0, numChar);
+      uiElement.textContent = u;
+    }
+  }

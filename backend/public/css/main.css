@@ -314,7 +314,7 @@ footer {
 }
 
 .url-item {
-  padding: .4em;
+  padding: .8em .8em;
   border-radius: 0;
   border-block-end: 1px solid var(--accent-color);
 }
