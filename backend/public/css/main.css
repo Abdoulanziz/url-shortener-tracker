@@ -107,7 +107,6 @@ footer {
   margin-block-start: 0.6em;
 }
 
-
 .navbar-dropdown > .dropdown-items > .dropdown-item-x .auth-btn-signin {
   margin-block-start: 14px; 
   padding: 12px 20px; 
@@ -243,7 +242,6 @@ footer {
   color: var(--text-grey);
 }
 
-
 .auth-form .form-control h4 a {
   margin-inline-start: .4em;
   color: var(--text-white);
@@ -261,8 +259,6 @@ footer {
   background-color: var(--accent-color);
   color: var(--text-white);
 }
-
-
 
 .data-form.flex {
   flex-direction: column;
@@ -292,10 +288,8 @@ footer {
   margin-block: .4em;
   border-radius: 6px;
   font-size: 16px;
-
   outline: none;
   border: none;
-
   background-color: var(--primary-color);
   color: var(--text-white);
   outline: 1px solid var(--accent-color);
@@ -314,7 +308,6 @@ footer {
   background-color: var(--accent-color);
 }
 
-
 .urls {
   list-style-type: none;
   border-radius: 6px;
@@ -323,7 +316,7 @@ footer {
 .url-item {
   padding: .4em;
   border-radius: 0;
-  border-block-end: 1px solid var(--primary-color);
+  border-block-end: 1px solid var(--accent-color);
 }
 
 .url-item h4 {
@@ -332,7 +325,11 @@ footer {
 }
 
 .url-item:first-child {
-  border-block-start: 1px solid var(--primary-color);
+  border-block-start: 0;
+}
+
+.url-item:last-child {
+  border-block-end: 0;
 }
 
 .url-target-stats {
@@ -354,6 +351,9 @@ footer {
   font-size: 12px;
 }
 
+.url-string {
+  font-size: 12px;
+}
 
 .text-center {
   text-align: center;
@@ -400,8 +400,6 @@ footer {
   margin-bottom: 5px;
 }
 
-
-
 @media (min-width: 768px) {
   header,
   main,
@@ -423,6 +421,4 @@ footer {
   body::before {
     content: "App works well on mobile devices only";
   }
-
-
 }

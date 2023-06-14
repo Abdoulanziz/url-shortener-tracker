@@ -80,18 +80,18 @@
             <ol class="urls">
               <% if(data.result){ %>
                 <% data.result.forEach(r=>{ %>
-                  <li class="url-item">
+                  <li class="url-item" style="background-color:var(--primary-color);">
                     <div class="url-card" style="inline-size: 100%;">
                       <div class="url-target-stats">
                         <h4 class="url-target">Target: <%= r.urlTarget %></h4>
                         <a href="/stats/<%= `${r._id}` %>" class="url-stats">Go to stats <i class="ti-arrow-right"></i></a>
                       </div>
-                      <span class="url-string">Shareable URL: <span style="color:#1da1f2;">https://<%= r.urlNew %></span></span>
+                      <span class="url-string">URL: <span style="color:#1da1f2;">https://<%= r.urlNew %></span></span>
                     </div>
                   </li>
                 <% }) %>
               <% }else if(data == ""){ %>
-                <div style="padding:.6em .8em; background-color:antiquewhite;border-radius:4px;">
+                <div style="padding:.6em .8em; background-color:var(--primary-color);border-radius:4px;">
                     <h4>Oops!</h4>
                     <h6>No URLs created - yet.</h6>     
                 </div>

@@ -1,23 +1,30 @@
   // Header Scroll-Top
+  const header = document.querySelector("header");
   const navbar = document.querySelector(".navbar");
+
   if (window.location.pathname == "/") {
-    navbar.style.backgroundColor = "transparent";
   } else {
-    navbar.style.backgroundColor = "var(--bg-secondary)";
   }
 
   window.addEventListener("scroll", () => {
     if (window.pageYOffset > navbar.offsetTop) {
+      // Scroll up
       if (window.location.pathname == "/") {
-        navbar.style.backgroundColor = "var(--bg-secondary)";
       }
       navbar.classList.add("sticky");
-      navbar.querySelector("a").color = "rgb(148, 148, 148)";
+      navbar.style.backgroundColor = "var(--primary-color)";
+      header.style.backgroundColor = "var(--primary-color)";
+
+      console.log("Scroll up");
     } else {
+      // Scroll down
       if (window.location.pathname == "/") {
-        navbar.style.backgroundColor = "var(--bg-secondary)";
       }
       navbar.classList.remove("sticky");
+      navbar.style.backgroundColor = "var(--primary-color)";
+      header.style.backgroundColor = "var(--primary-color)";
+
+      console.log("Scroll down");
     }
   });
 
