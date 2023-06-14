@@ -83,7 +83,10 @@
                   <li class="url-item" style="background-color:var(--primary-color);">
                     <div class="url-card" style="inline-size: 100%;">
                       <div class="url-target-stats">
-                        <h4 class="url-target">Target: <%= r.urlTarget %></h4>
+                        <div class="flex" style="justify-content: space-between;">
+                          <h4 class="url-target">Target: <%= r.urlTarget %></h4>
+                          <img src="/svg/delete.svg" alt="Delete icon" style="inline-size: 20px;block-size: 20px;cursor: pointer;">
+                        </div>
                         <a href="/stats/<%= `${r._id}` %>" class="url-stats">Go to stats <i class="ti-arrow-right"></i></a>
                       </div>
                       <div class="flex" style="justify-content: space-between;">
